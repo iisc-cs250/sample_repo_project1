@@ -213,11 +213,11 @@ import os
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
-  parser.add_argument('--test_data')
+  parser.add_argument('--test-data')
 
   try:
     get_ipython
-    list_args = ['--test_data', 'test_input.txt']
+    list_args = ['--test-data', 'test_input.txt']
     args = parser.parse_args(list_args)
   except:
     args = parser.parse_args()
@@ -229,7 +229,7 @@ if __name__ == "__main__":
       test_data.append(int(line))
 
   # Output for Software1.0
-  with open("Software1.txt", 'w') as fwrite:
+  with open("./Software1.txt", 'w') as fwrite:
     for x in test_data:
       out = test_software_1(x)
       fwrite.write("{}\n".format(out))
@@ -242,7 +242,7 @@ if __name__ == "__main__":
   loss_test, y_gt, y_pred = test_software_2(model_MLP, testloader)
 
   # Output for Software2.0
-  with open("Software2.txt", 'w') as fwrite:
+  with open("./Software2.txt", 'w') as fwrite:
     for class_x, x in zip(y_pred, test_data):
       out = get_string_from_class(class_x, x)
       fwrite.write("{}\n".format(out))
